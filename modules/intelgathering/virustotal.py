@@ -7,6 +7,7 @@ import json
 import re
 import time
 import urllib
+import urllib2
 from common import helpers
 
 
@@ -50,7 +51,7 @@ class IntelGather:
                 encoded_params = urllib.urlencode(parameters)
                 full_url = request_url + encoded_params
                 try:
-                    response = urllib.urlopen(full_url).read()
+                    response = urllib2.urlopen(full_url).read()
                     json_response = json.loads(response)
 
                     if json_response['response_code'] == 0:
